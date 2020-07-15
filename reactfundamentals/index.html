@@ -1,0 +1,67 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    
+<title>Document</title>
+</head>
+<body>
+    <div id="app"></div>
+    <script type="text/babel">
+        class App extends React.Component{
+           state={
+            name:'Ryu',
+             age:30
+             }
+
+          handleClick = (e) =>{ //arrow function are used to bind the this keyword even outside its object
+              console.log(this.state);
+          }
+
+
+          handleClicktwo = (e) =>{  //here we want to change the name of the object state
+              this.setState({
+                  name:"yoshi"
+              })
+          }
+
+
+          handleChange = (e) =>{
+         this.setState({
+           name: e.target.value
+          });
+          }
+
+   handleSubmit = (e) =>{
+       e.preventDefault();
+       console.log('form submitted',this.state.name)
+   }
+       
+          render(){
+                return(
+                    <div className="app-content">
+                <h1>Hey, ninjas</h1>
+                <p>{Math.random() * 10}</p>
+                <h4>my name is:{this.state.name} and am {this.state.age} years old</h4>
+
+               <button onClick={this.handleClick}>Click Me</button> 
+               <button onClick={this.handleClicktwo}>Click here</button> 
+               
+               <form onSubmit={this.handleSubmit}>
+                <input type="text" onChange={this.handleChange} />
+                <button>submit</button>
+                </form>
+                </div>
+                )
+            }
+        }
+        ReactDOM.render(<App/>, document.getElementById('app'));
+    </script>
+<!-- this.handleClick note we did not use the parentnsis() here bciz we wanted the function to be executed when the btn is clicked and not when the page loads -->
+</body>
+</html>
+<!-- npx create-react-app reactproject -->
