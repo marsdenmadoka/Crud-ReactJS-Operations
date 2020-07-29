@@ -16,8 +16,9 @@ state = {
     }
 
     render(){
+        
         const { posts } = this.state;
-        const postList = posts.lenght ? ( //same as if else statement
+        const postList = posts.length ? ( 
             posts.map(post => {
                 return (
                     <div className="post card" key={post.id}>
@@ -28,8 +29,8 @@ state = {
                     </div>
                 )
             })
-        ) : (  //same as else
-         <div className="center">No posts yet</div>
+        ) : ( 
+          <div className="center">No posts yet</div>
             )
 
         return(
