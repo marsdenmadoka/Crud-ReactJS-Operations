@@ -7,8 +7,19 @@ posts:[
 }
 
 const rootReducer = (state=initState, action) =>{
-    return state;
-    
+    console.log(action)
+if(action.type === 'DELETE_POST'){
+    let newPosts=state.posts.filter(post=>{
+        return action.id !== post.id
+    });
+    return { //return new object after the filter method
+        ...state,
+        posts:newPosts
+
+    }
+}
+return state;
+
 }
 
 export default rootReducer //will export this to index.js
