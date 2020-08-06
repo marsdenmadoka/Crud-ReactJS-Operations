@@ -15,9 +15,13 @@ const store=createStore(rootReducer,
   compose(
     applyMiddleware(thunk.withExtraArgument({ getFirebase, getFirestore })), 
     reduxFirestore(fbConfig),
-    reactReduxFirebase(fbConfig)
+    reactReduxFirebase(fbConfig,{attachAuthIsready:true})
   )
   );
 
-ReactDOM.render(<Provider store={store}><App /></Provider> ,document.getElementById('root')); // this <Provider store={store}><App /></Provider> binds our redux to reactApp
-serviceWorker.unregister();
+  // store.firebaseAuthIsReady.then(() => {
+   
+  // })
+
+  ReactDOM.render(<Provider store={store}><App /></Provider> ,document.getElementById('root')); // this <Provider store={store}><App /></Provider> binds our redux to reactApp
+  serviceWorker.unregister();

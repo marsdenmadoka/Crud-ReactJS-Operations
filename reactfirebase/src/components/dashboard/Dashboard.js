@@ -4,9 +4,11 @@ import ProjectList from '../projects/ProjectList'
 import { connect } from 'react-redux' //connect our dashbaord to the store/redux
 import { firestoreConnect } from 'react-redux-firebase'
 import { compose } from 'redux'
+import {Redirect} from  'react-router-dom'
 class Dashboard extends Component{
     render(){
-        const { projects }=this.props;
+        const { projects,auth}=this.props;
+if(!auth.uid) return <Redirect to ="/signin"/> //if mot loged in return to signup page
         return(
             <div className="dashboard container">
                 <div className="row">
@@ -25,8 +27,9 @@ class Dashboard extends Component{
 const mapStateToProps = (state) =>{
     console.log(state)
     return{
- projects:state.firestore.ordered.projects //this state.project.projects came from  our root reducer //please confirm
-    }
+ projects:state.firestore.ordered.projects, //this state.project.projects came from  our root reducer //please confirm
+ auth: state.firebase.auth   
+}
 
 }
 export default compose(connect
