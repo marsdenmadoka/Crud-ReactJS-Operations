@@ -25,3 +25,6 @@ const store=createStore(rootReducer,
 
   ReactDOM.render(<Provider store={store}><App /></Provider> ,document.getElementById('root')); // this <Provider store={store}><App /></Provider> binds our redux to reactApp
   serviceWorker.unregister();
+  
+
+  // https://reactfirebaseapp-ae65a.web.app
