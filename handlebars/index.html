@@ -28,8 +28,9 @@
                      <!-- else if -->
        <p>{{#if location}}wherabaouts:{{location}}{{else if house}}{{house}}{{else}}unknown{{/if}}</p>
     </div>
-    <a href="#" class="button view-details">view details</a>
-    </li>
+    <a href="cast-details.html?id={{@index}}" class="button view-details">view details</a>
+     <!-- index of the item at the array in cast.json -->   
+</li>
     
     {{/each}}
     

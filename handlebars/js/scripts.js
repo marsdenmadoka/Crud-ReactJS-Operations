@@ -1,4 +1,17 @@
  
+//get query String parameter
+function getParameterByName(name,url){
+    if(!url) url = window.location.href;
+    name = name.replace(/[\[\]]/g,"\\$&");
+    var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+    results = regex.exec(url);
+    if(!results) return null;
+    if(!results[2]) return '';
+    return decodeURIComponent(results[2].replace(/\+/g," "));
+
+}
+
+
  //expression custom helpers
 Handlebars.registerHelper("formatPhoneNumber",function(property){
     if(property){
@@ -20,9 +33,17 @@ $(document).ready(function(){
     var characterTemplate = $("#character-template").html();
     var compileCharacterTemplate = Handlebars.compile(characterTemplate); //compling the handlebars
 
+    var characterId=getParameterByName("id")
+
     $.ajax("./data/cast.json").done(function(cast){ //we using ajax to fetch data from our cast.json
-     console.log(cast)
-     $(".character-list-container").html(compileCharacterTemplate(cast));//binding our json data with our template i.e handlebars //check how it works in index.html
+     //console.log(cast) cast is just a parameter callback function name you can use any name you wish
+     if ($("body").hasClass("page-cast-details")){ //if it is cast-details.html
+        $(".character-list-container").html(compileCharacterTemplate(cast.characters[characterId])) //characters name of our array in cast.json
+     }else{ //if its index.html page
+        $(".character-list-container").html(compileCharacterTemplate(cast));//binding our json data with our template i.e handlebars //check how it works in index.html
+        
+    }
+     
 
     });
     
