@@ -1,0 +1,53 @@
+{
+    "characters":[
+        {
+            "name":"john snow",
+            "shortcode":"jon-sn",
+            "actor":"kit harinot",
+            "house":{
+               "name":"start",
+               "seat":"winterfall",
+               "words":"winter is comming",
+               "phone":534768902
+            },
+            "location":"The wall"
+        },
+        {
+            "name":"peal harbour",
+            "shortcode":"jon-sn",
+            "actor":"kit harinot",
+            "house":{
+                "name":"start",
+                "seat":"winterfall",
+                "words":"winter is comming",
+                "phone":534768907
+             },
+            "location":""
+        },
+        {
+            "name":"jeff jonh",
+            "shortcode":"jon-sn",
+            "actor":"kit harinot",
+            "house":{
+                "name":"start",
+                "seat":"winterfall",
+                "words":"winter is cssssjsjsjsomming",
+                "phone":534768909
+             },
+            "location":"The wall"
+        },
+        {
+            "name":"mars den w",
+            "shortcode":"jon-sn",
+            "actor":"kit harinot",
+            "house":{
+                "name":"start",
+                "seat":"winterfall",
+                "words":"winter is comming",
+                "phone":534768901
+             },
+            "location":""
+        }
+
+    ]
+}

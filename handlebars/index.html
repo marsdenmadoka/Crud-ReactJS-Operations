@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document getting stated</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<body>
+    <h1>GAme  of Thrones by madoka</h1>
+    <ul class="character-list-container"> </ul>
+ <script id="character-template" type="text/x-handlebars-template">
+    {{#each characters}}
+    <li class="character">
+        <img src="images/{{shortcode}}.jpg">
+        <div class="character-details">
+        <h2>{{#makeBold}}{{name}}{{/makeBold}}</h2>
+        <p>Actor:{{actor}}</p>    
+        <p>House:{{house.name}}</p><!-- refer to our json file to understand more -->
+        <p>Seat:{{house.seat}}</p>
+        <p>Words:{{house.words}}</p>
+        <p>{{formatPhoneNumber house.phone}}</p> <!-- we used handlebarshelpers here refer to scripts.js -->
+        <!-- using the if statement if location is true/exist the show the fiel else it wont be show -->
+       <p>{{#if location}}wherabaouts:{{location}}{{else}}unknown{{/if}}</p>
+       <!-- <p>wherabaouts:{{#if location}}{{location}}{{else}}unknown{{/if}}</p> -->
+
+                     <!-- else if -->
+       <p>{{#if location}}wherabaouts:{{location}}{{else if house}}{{house}}{{else}}unknown{{/if}}</p>
+    </div>
+    <a href="#" class="button view-details">view details</a>
+    </li>
+    
+    {{/each}}
+    
+    <!-- you can replace calling the house attributes with this -->
+<!-- {{#with house}}
+    <p>House:{{name}}</p>
+    <p>Seat:{{seat}}</p>
+    {{../location}} //you can be able to acces the outiside properties using this
+    <p>Words:{{words}}</p>
+    {{/with}} -->
+   
+
+  </script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.6/handlebars.min.js" integrity="sha512-zT3zHcFYbQwjHdKjCu6OMmETx8fJA9S7E6W7kBeFxultf75OPTYUJigEKX58qgyQMi1m1EgenfjMXlRZG8BXaw==" crossorigin="anonymous"></script>
+    <script src='js/scripts.js'></script>
+</body>
+</html>
